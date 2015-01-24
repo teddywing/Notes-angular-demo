@@ -2,51 +2,21 @@
 	<h1 class="font-size-28 font-weight-semibold">Notes</h1>
 	
 	<div class="position-relative">
-		<a href="#" class="button right-button">Save</a>
+		<a href="#" class="button right-button"
+			ng-click="noteService.save()">Save</a>
 	</div>
 </div>
 
 <div class="margin-top-70">
 	<div class="sidebar position-fixed min-height-100%">
-		<a href="#" class="sidebar-link display-block padding-13">A Note</a>
-		<a href="#" class="delete-link display-none"><span>×</span></a>
-		<a href="#" class="sidebar-link display-block padding-13">A Note</a>
-		<a href="#" class="delete-link display-none"><span>×</span></a>
-		<a href="#" class="sidebar-link display-block padding-13">A Note</a>
-		<a href="#" class="delete-link display-none"><span>×</span></a>
+		<div ng-repeat="note in noteService.notes">
+			<a href="#" class="sidebar-link display-block padding-13"
+				ng-click="noteService.get_note(note)"
+				ng-bind="note.title"></a>
+			<a href="#" class="delete-link display-none"><span>×</span></a>
+		</div>
 	</div>
 
-	<div class="note-editor" contenteditable>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in eleifend tellus, sed porta sapien. Nullam eget sodales neque. Proin non ornare libero, et condimentum risus. Suspendisse felis orci, rhoncus vitae mauris et, finibus sagittis felis. Aliquam egestas orci eu viverra varius. Suspendisse sollicitudin maximus purus, non egestas tellus lacinia et. Duis hendrerit arcu eu molestie dignissim. Curabitur pharetra erat vitae nibh posuere malesuada. Suspendisse tempus, massa eget elementum ultrices, nunc velit euismod justo, vitae interdum ipsum justo in lectus.
-		
-		Cras vel faucibus sapien, in laoreet ligula. Donec magna libero, vulputate nec fringilla id, dictum quis urna. Aenean non vehicula metus. Integer nec libero consequat justo elementum scelerisque. Morbi elementum elit quis diam feugiat, sed sagittis eros placerat. Vivamus pretium porta eros, sed accumsan urna venenatis et. Donec egestas tortor id iaculis placerat. Ut sit amet sollicitudin mauris. Quisque pharetra nunc felis, quis vulputate lacus mollis vel. Pellentesque accumsan efficitur congue. Sed sed est risus. In eu elementum nibh. Aliquam pretium ex felis, vitae cursus lorem sagittis eu. Vestibulum at turpis non odio consequat dignissim.
-		
-		Proin lobortis nec sem non aliquam. Curabitur pulvinar turpis sit amet felis ullamcorper blandit. In feugiat sem enim, id egestas tellus faucibus eget. Etiam neque neque, porta vitae est vel, vehicula condimentum urna. Nunc dignissim nunc at nisl facilisis porta. Nulla auctor, elit sed imperdiet tincidunt, tellus mauris consectetur massa, at luctus ligula est vitae lacus. Cras a ultricies elit, id porta turpis. Morbi id metus et justo scelerisque auctor ac id nunc. Proin mauris arcu, sodales in vestibulum eu, semper non sem. Donec pellentesque laoreet tellus eget dignissim. Sed est justo, bibendum ac nulla eget, aliquet ullamcorper odio.
-		
-		In iaculis interdum velit vel faucibus. In commodo tellus massa, sit amet mattis libero faucibus a. Curabitur a nunc id tellus condimentum venenatis. Pellentesque sem nisl, imperdiet eu est et, accumsan ornare nulla. Duis eget velit tempus, porttitor ligula et, tincidunt dolor. Pellentesque orci lorem, pulvinar quis posuere sed, cursus semper mauris. Suspendisse potenti. Integer scelerisque, neque ut cursus mollis, urna ipsum sagittis ante, eu placerat est enim mollis neque. Aliquam sit amet lectus sit amet justo placerat semper at et quam. Quisque in congue arcu. Curabitur condimentum, metus ut vehicula pharetra, sapien lectus porta arcu, vel posuere nulla ligula vel lacus.
-		
-		Mauris non mi eget sem aliquam volutpat. Sed orci nisi, facilisis ac sem nec, faucibus vestibulum metus. Mauris augue turpis, lobortis finibus vulputate at, efficitur id ipsum. Sed et bibendum eros. Proin tempor quam at elit euismod cursus. Cras ac ipsum eget leo condimentum bibendum at eget urna. Sed non felis sit amet leo molestie commodo sed in mauris. Nulla faucibus porttitor felis, eget fermentum est commodo non. Nulla facilisi. Ut nulla arcu, tincidunt auctor sapien eu, condimentum facilisis risus. Cras malesuada quis risus vitae fermentum.
-		
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in eleifend tellus, sed porta sapien. Nullam eget sodales neque. Proin non ornare libero, et condimentum risus. Suspendisse felis orci, rhoncus vitae mauris et, finibus sagittis felis. Aliquam egestas orci eu viverra varius. Suspendisse sollicitudin maximus purus, non egestas tellus lacinia et. Duis hendrerit arcu eu molestie dignissim. Curabitur pharetra erat vitae nibh posuere malesuada. Suspendisse tempus, massa eget elementum ultrices, nunc velit euismod justo, vitae interdum ipsum justo in lectus.
-		
-		Cras vel faucibus sapien, in laoreet ligula. Donec magna libero, vulputate nec fringilla id, dictum quis urna. Aenean non vehicula metus. Integer nec libero consequat justo elementum scelerisque. Morbi elementum elit quis diam feugiat, sed sagittis eros placerat. Vivamus pretium porta eros, sed accumsan urna venenatis et. Donec egestas tortor id iaculis placerat. Ut sit amet sollicitudin mauris. Quisque pharetra nunc felis, quis vulputate lacus mollis vel. Pellentesque accumsan efficitur congue. Sed sed est risus. In eu elementum nibh. Aliquam pretium ex felis, vitae cursus lorem sagittis eu. Vestibulum at turpis non odio consequat dignissim.
-		
-		Proin lobortis nec sem non aliquam. Curabitur pulvinar turpis sit amet felis ullamcorper blandit. In feugiat sem enim, id egestas tellus faucibus eget. Etiam neque neque, porta vitae est vel, vehicula condimentum urna. Nunc dignissim nunc at nisl facilisis porta. Nulla auctor, elit sed imperdiet tincidunt, tellus mauris consectetur massa, at luctus ligula est vitae lacus. Cras a ultricies elit, id porta turpis. Morbi id metus et justo scelerisque auctor ac id nunc. Proin mauris arcu, sodales in vestibulum eu, semper non sem. Donec pellentesque laoreet tellus eget dignissim. Sed est justo, bibendum ac nulla eget, aliquet ullamcorper odio.
-		
-		In iaculis interdum velit vel faucibus. In commodo tellus massa, sit amet mattis libero faucibus a. Curabitur a nunc id tellus condimentum venenatis. Pellentesque sem nisl, imperdiet eu est et, accumsan ornare nulla. Duis eget velit tempus, porttitor ligula et, tincidunt dolor. Pellentesque orci lorem, pulvinar quis posuere sed, cursus semper mauris. Suspendisse potenti. Integer scelerisque, neque ut cursus mollis, urna ipsum sagittis ante, eu placerat est enim mollis neque. Aliquam sit amet lectus sit amet justo placerat semper at et quam. Quisque in congue arcu. Curabitur condimentum, metus ut vehicula pharetra, sapien lectus porta arcu, vel posuere nulla ligula vel lacus.
-		
-		Mauris non mi eget sem aliquam volutpat. Sed orci nisi, facilisis ac sem nec, faucibus vestibulum metus. Mauris augue turpis, lobortis finibus vulputate at, efficitur id ipsum. Sed et bibendum eros. Proin tempor quam at elit euismod cursus. Cras ac ipsum eget leo condimentum bibendum at eget urna. Sed non felis sit amet leo molestie commodo sed in mauris. Nulla faucibus porttitor felis, eget fermentum est commodo non. Nulla facilisi. Ut nulla arcu, tincidunt auctor sapien eu, condimentum facilisis risus. Cras malesuada quis risus vitae fermentum.
-		
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in eleifend tellus, sed porta sapien. Nullam eget sodales neque. Proin non ornare libero, et condimentum risus. Suspendisse felis orci, rhoncus vitae mauris et, finibus sagittis felis. Aliquam egestas orci eu viverra varius. Suspendisse sollicitudin maximus purus, non egestas tellus lacinia et. Duis hendrerit arcu eu molestie dignissim. Curabitur pharetra erat vitae nibh posuere malesuada. Suspendisse tempus, massa eget elementum ultrices, nunc velit euismod justo, vitae interdum ipsum justo in lectus.
-		
-		Cras vel faucibus sapien, in laoreet ligula. Donec magna libero, vulputate nec fringilla id, dictum quis urna. Aenean non vehicula metus. Integer nec libero consequat justo elementum scelerisque. Morbi elementum elit quis diam feugiat, sed sagittis eros placerat. Vivamus pretium porta eros, sed accumsan urna venenatis et. Donec egestas tortor id iaculis placerat. Ut sit amet sollicitudin mauris. Quisque pharetra nunc felis, quis vulputate lacus mollis vel. Pellentesque accumsan efficitur congue. Sed sed est risus. In eu elementum nibh. Aliquam pretium ex felis, vitae cursus lorem sagittis eu. Vestibulum at turpis non odio consequat dignissim.
-		
-		Proin lobortis nec sem non aliquam. Curabitur pulvinar turpis sit amet felis ullamcorper blandit. In feugiat sem enim, id egestas tellus faucibus eget. Etiam neque neque, porta vitae est vel, vehicula condimentum urna. Nunc dignissim nunc at nisl facilisis porta. Nulla auctor, elit sed imperdiet tincidunt, tellus mauris consectetur massa, at luctus ligula est vitae lacus. Cras a ultricies elit, id porta turpis. Morbi id metus et justo scelerisque auctor ac id nunc. Proin mauris arcu, sodales in vestibulum eu, semper non sem. Donec pellentesque laoreet tellus eget dignissim. Sed est justo, bibendum ac nulla eget, aliquet ullamcorper odio.
-		
-		In iaculis interdum velit vel faucibus. In commodo tellus massa, sit amet mattis libero faucibus a. Curabitur a nunc id tellus condimentum venenatis. Pellentesque sem nisl, imperdiet eu est et, accumsan ornare nulla. Duis eget velit tempus, porttitor ligula et, tincidunt dolor. Pellentesque orci lorem, pulvinar quis posuere sed, cursus semper mauris. Suspendisse potenti. Integer scelerisque, neque ut cursus mollis, urna ipsum sagittis ante, eu placerat est enim mollis neque. Aliquam sit amet lectus sit amet justo placerat semper at et quam. Quisque in congue arcu. Curabitur condimentum, metus ut vehicula pharetra, sapien lectus porta arcu, vel posuere nulla ligula vel lacus.
-		
-		Mauris non mi eget sem aliquam volutpat. Sed orci nisi, facilisis ac sem nec, faucibus vestibulum metus. Mauris augue turpis, lobortis finibus vulputate at, efficitur id ipsum. Sed et bibendum eros. Proin tempor quam at elit euismod cursus. Cras ac ipsum eget leo condimentum bibendum at eget urna. Sed non felis sit amet leo molestie commodo sed in mauris. Nulla faucibus porttitor felis, eget fermentum est commodo non. Nulla facilisi. Ut nulla arcu, tincidunt auctor sapien eu, condimentum facilisis risus. Cras malesuada quis risus vitae fermentum.
-		
-		
-	</div>
+	<div class="note-editor" contenteditable
+		ng-bind="noteService.current_note.body"></div>
 </div>
