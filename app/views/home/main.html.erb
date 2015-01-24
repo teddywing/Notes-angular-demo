@@ -3,10 +3,21 @@
 	
 	<div class="position-relative">
 		<div class="right-section">
+			<span class="display-inline-block margin-top--15"
+				ng-show="noteService.show_create">
+				<input type="text" class="form-field" ng-model="noteService.new_note_title" />
+				<button type="button" class="button"
+					ng-click="noteService.create()">Create</button>
+				<button type="button" class="button"
+					ng-click="noteService.show_create = false">Cancel</button>
+			</span>
+			
 			<a href="#" class="button"
-				ng-click="">New</a>
+				ng-show="!noteService.show_create"
+				ng-click="noteService.show_create = true">New</a>
 				
 			<a href="#" class="button margin-left-8"
+				ng-show="noteService.current_note"
 				ng-click="noteService.save()">Save</a>
 		</div>
 	</div>
@@ -22,6 +33,8 @@
 		</div>
 	</div>
 
-	<div class="note-editor" contenteditable
-		ng-bind="noteService.current_note.body"></div>
+	<div class="note-editor">
+		<textarea class="border-none outline-none width-100% font-size-16"
+			ng-model="noteService.current_note.body"></textarea>
+	</div>
 </div>
