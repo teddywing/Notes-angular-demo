@@ -27,6 +27,7 @@
 	<div class="sidebar position-fixed min-height-100%">
 		<div ng-repeat="note in noteService.notes">
 			<a href="#" class="sidebar-link display-block padding-13"
+				ng-class="{ active: noteService.current_note === note }"
 				ng-click="noteService.get_note(note)"
 				ng-bind="note.title"></a>
 			<a href="#" class="delete-link display-none"><span>×</span></a>
