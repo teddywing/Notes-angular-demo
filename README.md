@@ -16,7 +16,11 @@ The `NotesController` provides a CRUD API for notes which is then accessed by an
 
 		$ bundle install --path vendor/bundle
 
-2. Start the Rails server
+2. Run migrations
+
+		$ bundle exec rake db:migrate
+
+3. Start the Rails server
 
 		$ bundle exec rails server
 
