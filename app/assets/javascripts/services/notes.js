@@ -24,12 +24,7 @@ angular
 				},
 				
 				save: function() {
-					console.log(this.current_note.body);
-					Note.save({
-						id: this.current_note.id,
-						title: this.current_note.title,
-						body: this.current_note.body
-					});
+					this.current_note.$save();
 				},
 				
 				create: function () {
