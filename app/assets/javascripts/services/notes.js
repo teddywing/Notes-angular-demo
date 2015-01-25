@@ -6,7 +6,7 @@ angular
 			var Note = $resource('/notes/:id.json',
 				{ id: '@id' },
 				{
-					save: {
+					update: {
 						method: 'PUT'
 					}
 				});
@@ -23,8 +23,8 @@ angular
 					this.current_note = note;
 				},
 				
-				save: function() {
-					this.current_note.$save();
+				update: function() {
+					this.current_note.$update();
 				},
 				
 				create: function () {
