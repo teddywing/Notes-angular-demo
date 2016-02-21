@@ -4,6 +4,10 @@ body {
 }
 
 
+.display-inline-block {
+	display: inline-block;
+}
+
 .display-block {
 	display: block;
 }
@@ -13,8 +17,16 @@ body {
 }
 
 
+.margin-top--15 {
+	margin-top: -15px;
+}
+
 .margin-top-70 {
 	margin-top: 70px;
+}
+
+.margin-left-8 {
+	margin-left: 8px;
 }
 
 
@@ -41,7 +53,6 @@ body {
 	border: none;
 }
 
-
 .outline-none {
 	outline: none;
 }
@@ -62,10 +73,10 @@ body {
 	height: 30px;
 	padding: 20px;
 
-	.right-button {
+	.right-section {
 		position: absolute;
 		right: 40px;
-		top: -33px;
+		top: -22px;
 	}
 }
 
@@ -148,6 +159,12 @@ $sidebar-width: 250px;
 	border-radius: 6px;
 }
 
+button.button {
+	border: none;
+	font: 16px Avenir, Helvetica, sans-serif;
+	cursor: pointer;
+}
+
 .button:hover {
 	background-color: #178E17;
 	color: #eee;
@@ -157,4 +174,13 @@ $sidebar-width: 250px;
 	color: #ddd;
 	-webkit-box-shadow:inset 0 2px 4px 0 #0D4F0D;
 	box-shadow:inset 0 2px 4px 0 #0D4F0D;
+}
+
+
+input.form-field {
+	border: 2px solid rgb(213, 202, 202);
+	width: 260px;
+	height: 42px;
+	padding: 0 10px;
+	font-size: 16px;
 }
