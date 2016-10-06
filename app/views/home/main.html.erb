@@ -3,30 +3,44 @@
 	
 	<div class="position-relative">
 		<div class="right-section">
-			<span class="display-none margin-top-neg-15">
-				<input type="text" class="form-field" />
-				<button type="button" class="button">Create</button>
-				<button type="button" class="button">Cancel</button>
+			<span class="display-inline-block margin-top-neg-15"
+				ng-show="notesService.show_create">
+				<input type="text" class="form-field"
+					ng-model="notesService.new_note_title" />
+				<button type="button" class="button"
+					ng-click="notesService.create(notesService.new_note_title)">Create</button>
+				<button type="button" class="button"
+					ng-click="notesService.show_create = false">Cancel</button>
 			</span>
 			
-			<a href="#" class="button">New</a>
+			<a href="#" class="button"
+				ng-hide="notesService.show_create"
+				ng-click="notesService.show_create = true">New</a>
 	
-			<a href="#" class="button margin-left-8">Save</a>
+			<a href="#" class="button margin-left-8"
+				ng-show="notesService.current_note"
+				ng-click="notesService.update()">Save</a>
 		</div>
 	</div>
 </div>
 
 <div class="margin-top-70">
 	<div class="sidebar position-fixed min-height-100%">
-		<a href="#" class="sidebar-link display-block padding-13">A Note</a>
-		<a href="#" class="delete-link display-none"><span>×</span></a>
-		<a href="#" class="sidebar-link display-block padding-13">A Note</a>
-		<a href="#" class="delete-link display-none"><span>×</span></a>
-		<a href="#" class="sidebar-link display-block padding-13">A Note</a>
-		<a href="#" class="delete-link display-none"><span>×</span></a>
+		<div ng-repeat="note in notesService.notes">
+			<a href="#" class="sidebar-link display-block padding-13"
+				ng-class="{ active: notesService.current_note === note }"
+				ng-click="notesService.open(note)"
+				ng-mouseover="display_delete_link = true"
+				ng-mouseout="display_delete_link = false"
+				ng-bind="note.title"></a>
+			<a href="#" class="delete-link"
+				ng-show="display_delete_link"
+				ng-click="notesService.delete(note)"><span>×</span></a>
+		</div>
 	</div>
 
 	<div class="note-editor">
-		<textarea class="border-none outline-none width-100% font-size-16"></textarea>
+		<textarea class="border-none outline-none width-100% font-size-16"
+			ng-model="notesService.current_note.body"></textarea>
 	</div>
 </div>
